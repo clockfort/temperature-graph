@@ -14,7 +14,6 @@ my $current = localtime;
 my @dates = map { Time::Piece->strptime($_, '%b %d %T') } @date_strings;
 my @datetimes = map { DateTime->new(year => $current->year, month => $_->mon, day => $_->mday, hour => $_->hour, minute => $_->min, second => $_->sec) } @dates;
 
-my $current = localtime;
 if ($dates[-1]->fullmonth eq "January"){
 	foreach my $date (@datetimes){
 		$date->set (year => $current->year-1) if $date->fullmonth eq "December"
@@ -52,8 +51,7 @@ sub jsify_data {
 	my $minutes = $date->minute();
 	my $seconds = $date->second();
 
-	my $string = "    [new Date($year, $month, $day, $hours, $minutes, $seconds), $temp],\n";
-	return $string;
+	"    [new Date($year, $month, $day, $hours, $minutes, $seconds), $temp],\n";
 }
 
 $webpage = $webpage . <<EOF
