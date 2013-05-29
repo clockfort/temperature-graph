@@ -16,7 +16,7 @@ my @datetimes = map { DateTime->new(year => $current->year, month => $_->mon, da
 
 if ($dates[-1]->fullmonth eq "January"){
 	foreach my $date (@datetimes){
-		$date->set (year => $current->year-1) if $date->fullmonth eq "December"
+		$date->set (year => $current->year-1) if $date->month_name eq "December"
 	}
 }
 
