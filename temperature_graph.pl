@@ -62,7 +62,7 @@ $webpage = $webpage . <<EOF
 
   var annotatedtimeline = new google.visualization.AnnotatedTimeLine(
       document.getElementById('visualization'));
-  annotatedtimeline.draw(data, {'displayAnnotations': true});
+  annotatedtimeline.draw(data, {'displayAnnotations': true, 'scaleType': 'maximized'});
 }
     
     google.setOnLoadCallback(drawVisualization);
