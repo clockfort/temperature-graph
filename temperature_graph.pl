@@ -4,8 +4,8 @@ use strict;
 use Time::Piece;
 use DateTime; #because Time::Piece doesn't really have setters :-/
 
-my @temperature_strings_c = `grep -h ata-ST3000DM001-9YN166_W1F0MYCM /var/log/messages* | grep hddtemp | awk '{print \$8}'`;
-my @date_strings = `grep -h ata-ST3000DM001-9YN166_W1F0MYCM /var/log/messages* | grep hddtemp | cut -c 1-16`;
+my @temperature_strings_c = `grep -h ata-ST3000DM001-9YN166_W1F00AED /var/log/messages* | grep hddtemp | awk '{print \$8}'`;
+my @date_strings = `grep -h ata-ST3000DM001-9YN166_W1F00AED /var/log/messages* | grep hddtemp | cut -c 1-16`;
 map { chop; chop; } @date_strings; #"A little of the ol' 'chop chop'!" ~TF2 Sniper
 
 my @temps = map { $_ * 1.8 + 32 } @temperature_strings_c;
